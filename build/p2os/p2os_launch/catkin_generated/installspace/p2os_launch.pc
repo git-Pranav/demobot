@@ -1,0 +1,8 @@
+prefix=/home/rsldemo/demobot/install
+
+Name: p2os_launch
+Description: Description of p2os_launch
+Version: 2.0.2
+Cflags: 
+Libs: -L/home/rsldemo/demobot/install/lib 
+Requires: 

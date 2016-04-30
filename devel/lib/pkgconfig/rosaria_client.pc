@@ -1,0 +1,8 @@
+prefix=/home/rsldemo/demobot/devel
+
+Name: rosaria_client
+Description: Description of rosaria_client
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/rsldemo/demobot/devel/lib 
+Requires: 

@@ -1,0 +1,8 @@
+prefix=/home/rsldemo/demobot/devel
+
+Name: p2os_teleop
+Description: Description of p2os_teleop
+Version: 2.0.2
+Cflags: 
+Libs: -L/home/rsldemo/demobot/devel/lib -llib
+Requires: geometry_msgs sensor_msgs tf std_msgs

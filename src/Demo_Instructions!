@@ -1,0 +1,16 @@
+ Quick Demo If you don't need to remap an area: 
+NewTerminal: roslaunch rsldemo rsldemo.launch (This is the main robot launch script) 
+NT: rosrun rviz rviz (visualizer) 
+NT: rosrun rsldemo joystick_demobot.launch (joystick control)
+
+In the rviz visualizer you should see the robot in the map. Localize the robot with the 2d pose estimate button until you are very close to the exact pose of the robot. Use the joystick (hold RB and LB, left stick to move) to rotate and slowly move the robot until you see the robot has a smaller "pose cloud" and the laser lines up with the environment. In order to let the robot autonomously patrol close the terminal with the joystick control. Now use the 2d navigation goal in rviz to tell the robot to move to a new location!
+
+Mapping an area If you need to make a map:
+
+NewTerminal?: roslaunch rsldemo rsl_configuration.launch 
+NT: roslaunch rsldemo joystick_demobot.launch 
+NT: rosrun rviz rviz NT: rosrun gmapping slam_gmapping scan:=scan _base_frame:=base_link _odom_frame:=odom
+
+When finished: rosrun map_server map_saver -f [whatevernameyouwant]
+
+Move the .pgm file into the rsldemo folder. Now, edit the demo launch file to include the map and the path to the map. 

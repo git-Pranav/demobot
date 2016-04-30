@@ -1,0 +1,7 @@
+set(_CATKIN_CURRENT_PACKAGE "rsldemo")
+set(rsldemo_MAINTAINER "rsldemo <rsldemo@todo.todo>")
+set(rsldemo_DEPRECATED "")
+set(rsldemo_VERSION "0.0.0")
+set(rsldemo_BUILD_DEPENDS "roscpp" "rospy" "std_msgs")
+set(rsldemo_RUN_DEPENDS "roscpp" "rospy" "std_msgs")
+set(rsldemo_BUILDTOOL_DEPENDS "catkin")

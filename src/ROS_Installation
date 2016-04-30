@@ -1,0 +1,90 @@
+---------Ros Set Up Process--------------
+http://wiki.ros.org/indigo/Installation/Ubuntu
+
+sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
+
+sudo apt-key adv --keyserver hkp://pool.sks-keyservers.net --recv-key 0xB01FA116
+
+sudo apt-get update
+
+--------Installing the desktop-full although Desktop-install is all that is necessary:
+sudo apt-get install ros-indigo-desktop-full
+
+apt-cache search ros-indigo
+sudo rosdep init
+rosdep update
+echo "source /opt/ros/indigo/setup.bash" >> ~/.bashrc
+source ~/.bashrc
+
+---------Not sure if this is necessary:
+sudo apt-get install python-rosinstall
+
+--------Initialize Workspace----------------
+mkdir -p ~/demobot/src
+cd ~/demobot/src
+catkin_init_workspace
+
+cd .. (or cd ~/demobot)
+catkin_make
+
+source devel/setup.bash
+
+echo $ROS_PACKAGE_PATH 
+------make sure you have your directory in there mine looks like:
+/home/rsldemo/demobot/src:/opt/ros/indigo/share:/opt/ros/indigo/stacks
+
+
+
+
+--------Install ROS-ARIA---------
+roscd
+cd ..
+cd /src
+git clone https://github.com/amor-ros-pkg/rosaria.git
+
+**update apt-get first**
+sudo apt-get update
+sudo apt-get upgrade
+
+**automatically install aria dependencies**
+rosdep update
+rosdep install rosaria
+roscd; cd ..
+catkin_make
+
+
+
+
+
+-----------Trying p2os------------
+git clone https://github.com/allenh1/p2os.git
+
+
+
+-------Need ftdi drivers------------
+http://pylibftdi.readthedocs.org/en/latest/installation.html
+
+sudo usermod -a -G dialout $USER
+
+also try sudo apt-get remove modemmanager
+sudo reboot
+
+
+-------------INSTALL SLAM_GMAPPING ------
+sudo apt-get install ros-indigo-slam-gmapping
+sudo apt-get install ros-indigo-map-server
+
+
+
+----MAPPING INSTRUCTIONS----
+NewTerminal: roslaunch rsldemo rsl_configuration.launch
+NT: roslaunch rsldemo joystick_demobot.launch
+NT: rosrun rviz rviz
+NT: rosrun gmapping slam_gmapping scan:=scan _base_frame:=base_link _odom_frame:=odom
+
+When finished:
+rosrun map_server map_saver -f mapname
+
+
+
+

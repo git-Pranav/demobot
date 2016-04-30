@@ -1,0 +1,7 @@
+set(_CATKIN_CURRENT_PACKAGE "p2os_launch")
+set(p2os_launch_MAINTAINER "Hunter Allen <allen286@purdue.edu>")
+set(p2os_launch_DEPRECATED "")
+set(p2os_launch_VERSION "2.0.2")
+set(p2os_launch_BUILD_DEPENDS )
+set(p2os_launch_RUN_DEPENDS )
+set(p2os_launch_BUILDTOOL_DEPENDS "catkin")

@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<launch>
+	<!-- Run the robot configuraiton file, this file starts the robot and sensor models/communication -->
+	<include file="$(find rsldemo)/rsl_configuration.launch"/>
+
+	<!-- Run the map server (you can run it here or in another terminal) -->
+	<node name="map_server" pkg="map_server" type="map_server" args="$(find rsldemo)/full_map_edit2.pgm 0.05"/>
+
+	<!--- Run AMCL -->
+	<node pkg="amcl" type="amcl" name="amcl"  args="scan:=scan" output="screen" >
+		<param name="laser_max_beams" value="100"/>
+		<param name="odom_frame_id" value="odom"/>
+		<param name="base_frame_id" value="base_link"/>
+		<param name="global_frame_id" value="map"/>
+	</node>
+		
+	<node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
+		<rosparam file="$(find rsldemo)/costmap_common_params_p3dx.yaml" command="load" ns="global_costmap" />
+		<rosparam file="$(find rsldemo)/costmap_common_params_p3dx.yaml" command="load" ns="local_costmap" />
+		<rosparam file="$(find rsldemo)/local_costmap_params.yaml" command="load" />
+		<rosparam file="$(find rsldemo)/global_costmap_params.yaml" command="load" />
+		<rosparam file="$(find rsldemo)/base_local_planner_params.yaml" command="load" />
+		<param name="base_global_planner" type="string" value="NavfnROS" />
+		<param name="conservative_reset_dist" type="double" value="3.0" />
+		<param name="controller_frequency" type="double" value="15.0" />
+	</node>
+
+</launch>

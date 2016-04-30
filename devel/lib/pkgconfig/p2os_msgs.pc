@@ -1,0 +1,8 @@
+prefix=/home/rsldemo/demobot/devel
+
+Name: p2os_msgs
+Description: Description of p2os_msgs
+Version: 2.0.2
+Cflags: -I/home/rsldemo/demobot/devel/include
+Libs: -L/home/rsldemo/demobot/devel/lib 
+Requires: message_runtime std_msgs

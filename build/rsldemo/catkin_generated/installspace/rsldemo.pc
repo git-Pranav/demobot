@@ -1,0 +1,8 @@
+prefix=/home/rsldemo/demobot/install
+
+Name: rsldemo
+Description: Description of rsldemo
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/rsldemo/demobot/install/lib 
+Requires: 

@@ -1,0 +1,8 @@
+prefix=/home/rsldemo/demobot/install
+
+Name: wiimote
+Description: Description of wiimote
+Version: 1.10.1
+Cflags: -I/home/rsldemo/demobot/install/include
+Libs: -L/home/rsldemo/demobot/install/lib 
+Requires: geometry_msgs sensor_msgs std_msgs std_srvs rospy roslib genmsg

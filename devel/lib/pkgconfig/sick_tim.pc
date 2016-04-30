@@ -1,0 +1,8 @@
+prefix=/home/rsldemo/demobot/devel
+
+Name: sick_tim
+Description: Description of sick_tim
+Version: 0.0.5
+Cflags: -I/home/rsldemo/demobot/devel/include -I/home/rsldemo/demobot/src/sick_tim/include -I/usr/include -I/usr/include/libusb-1.0
+Libs: -L/home/rsldemo/demobot/devel/lib -lsick_tim_3xx -l:/usr/lib/x86_64-linux-gnu/libboost_system.so -lusb-1.0
+Requires: roscpp sensor_msgs diagnostic_updater dynamic_reconfigure
